@@ -1,9 +1,8 @@
 import "./App.css";
-import { Box, Button, Card, Fab } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import AddFoodItemButton from "./components/AddFoodItemButton";
 import FoodItemList from "./components/FoodItemList";
 import * as React from "react";
+import { Box } from "@mui/material";
 
 const boxStyle = {
     display: "flex",

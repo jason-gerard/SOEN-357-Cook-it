@@ -16,14 +16,15 @@ function FoodItemInputForm(props) {
         name: "",
     });
 
-    const onTextChange = (e) => setFoodItem({
-        ...foodItem,
-        name: e.target.value,
-    });
+    const onTextChange = (e) =>
+        setFoodItem({
+            ...foodItem,
+            name: e.target.value,
+        });
 
     const handleSubmit = () => {
         setFoodItem({
-            id: foodItems.length+1,
+            id: foodItems.length + 1,
             name: "",
         });
         setFoodItems([...foodItems, foodItem]);
@@ -44,7 +45,9 @@ function FoodItemInputForm(props) {
                 onChange={onTextChange}
                 value={foodItem.name}
             />
-            <Button variant="contained" onClick={handleSubmit}>Add</Button>
+            <Button variant="contained" onClick={handleSubmit}>
+                Add
+            </Button>
         </Dialog>
     );
 }
@@ -66,7 +69,12 @@ export default function AddFoodItemButton(props) {
                 <AddIcon />
             </Fab>
 
-            <FoodItemInputForm open={open} onClose={handleClose} foodItems={props.foodItems} setFoodItems={props.setFoodItems} />
+            <FoodItemInputForm
+                open={open}
+                onClose={handleClose}
+                foodItems={props.foodItems}
+                setFoodItems={props.setFoodItems}
+            />
         </React.Fragment>
     );
 }
