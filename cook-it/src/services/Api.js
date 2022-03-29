@@ -8,7 +8,6 @@ export async function searchRecipesByIngredients(ingredients) {
 
 export async function getAnalyzedRecipeInstructions(recipeId) {
     const res = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
-    console.log(res.data);
-    return res.data[0];
+    return res.data[0].steps;
 }
 

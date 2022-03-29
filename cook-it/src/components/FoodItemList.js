@@ -11,6 +11,7 @@ import { Card } from "@mui/material";
 
 const cardStyle = {
     minWidth: 400,
+    marginTop: "20px",
 };
 
 export default function FoodItemList(props) {
