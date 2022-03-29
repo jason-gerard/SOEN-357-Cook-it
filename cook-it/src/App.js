@@ -1,6 +1,6 @@
 import "./App.css";
-import {Box, Button, Card, Fab} from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+import { Box, Button, Card, Fab } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 import AddFoodItemButton from "./components/AddFoodItemButton";
 import FoodItemList from "./components/FoodItemList";
 import * as React from "react";
@@ -14,12 +14,13 @@ const boxStyle = {
 };
 
 function App() {
-    const [foodItems, setFoodItems] = React.useState([3, 5, 6, 7, 11]);
+    const [foodItems, setFoodItems] = React.useState([]);
+    const [checked, setChecked] = React.useState([]);
 
     return (
         <Box sx={boxStyle} className="App">
-            <FoodItemList foodItems={foodItems} />
-            <AddFoodItemButton />
+            <FoodItemList foodItems={foodItems} checked={checked} setChecked={setChecked} />
+            <AddFoodItemButton foodItems={foodItems} setFoodItems={setFoodItems} />
         </Box>
     );
 }
