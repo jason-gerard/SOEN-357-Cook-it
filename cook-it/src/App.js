@@ -1,13 +1,23 @@
 import "./App.css";
-import { Button, Fab } from "@mui/material";
+import {Box, Button, Card, Fab} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
-import AddItem from "./components/AddItem";
+import AddFoodItemButton from "./components/AddFoodItemButton";
+import FoodItemList from "./components/FoodItemList";
+
+const boxtyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    height: "100vh",
+    position: "relative",
+};
 
 function App() {
     return (
-        <div className="App">
-            <AddItem />
-        </div>
+        <Box sx={boxtyle} className="App">
+            <FoodItemList />
+            <AddFoodItemButton />
+        </Box>
     );
 }
 
