@@ -11,7 +11,7 @@ const generateRecipeButtonStyle = {
 };
 
 function GeneratedRecipeModal(props) {
-    const { onClose, open, foodItems, checked } = props;
+    const { onClose, open, foodItems } = props;
 
     const [recipe, setRecipe] = React.useState({});
     const [instructions, setInstructions] = React.useState([]);
@@ -19,7 +19,7 @@ function GeneratedRecipeModal(props) {
     React.useEffect(() => {
         async function f() {
             if (open) {
-                const selectedFoodItems = foodItems.filter((foodItem) => checked.includes(foodItem.id));
+                const selectedFoodItems = foodItems.filter((foodItem) => foodItem.isChecked);
                 const recipe = await searchRecipesByIngredients(selectedFoodItems);
                 setRecipe(recipe);
                 const instructions = await getAnalyzedRecipeInstructions(recipe.id);
@@ -81,7 +81,6 @@ export default function GenerateRecipeButton(props) {
                 open={open}
                 onClose={handleClose}
                 foodItems={props.foodItems}
-                checked={props.checked}
             />
         </React.Fragment>
     );

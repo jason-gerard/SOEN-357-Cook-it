@@ -15,13 +15,12 @@ const boxStyle = {
 
 function App() {
     const [foodItems, setFoodItems] = React.useState([]);
-    const [checked, setChecked] = React.useState([]);
 
     return (
         <Box sx={boxStyle} className="App">
             <FoodItemList foodItems={foodItems} setFoodItems={setFoodItems} />
             <AddFoodItemButton foodItems={foodItems} setFoodItems={setFoodItems} />
-            <GenerateRecipeButton foodItems={foodItems} checked={checked} />
+            <GenerateRecipeButton foodItems={foodItems} />
         </Box>
     );
 }

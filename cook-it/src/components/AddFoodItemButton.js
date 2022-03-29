@@ -26,7 +26,6 @@ function FoodItemInputForm(props) {
 
     const handleSubmit = () => {
         setFoodItems(prevFoodItems => ([...prevFoodItems, {...foodItem}]));
-        console.log(foodItems);
 
         setFoodItem({
             id: count,
