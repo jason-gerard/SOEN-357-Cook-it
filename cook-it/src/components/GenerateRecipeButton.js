@@ -1,13 +1,7 @@
 import * as React from "react";
-import {
-    Button,
-    Dialog, DialogActions, DialogContent,
-    DialogTitle,
-    ListItem,
-    ListItemText
-} from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, ListItem, ListItemText } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import {getAnalyzedRecipeInstructions, searchRecipesByIngredients} from "../services/Api";
+import { getAnalyzedRecipeInstructions, searchRecipesByIngredients } from "../services/Api";
 import List from "@mui/material/List";
 
 const generateRecipeButtonStyle = {
@@ -38,7 +32,7 @@ function GeneratedRecipeModal(props) {
     const handleClose = () => {
         onClose();
     };
-    
+
     return (
         <Dialog onClose={handleClose} open={open}>
             <DialogTitle>Recipe: {recipe.title}</DialogTitle>
@@ -52,7 +46,9 @@ function GeneratedRecipeModal(props) {
                 </List>
             </DialogContent>
             <DialogActions>
-                <Button variant="contained" onClick={handleClose}>Close</Button>
+                <Button variant="contained" onClick={handleClose}>
+                    Close
+                </Button>
             </DialogActions>
         </Dialog>
     );
