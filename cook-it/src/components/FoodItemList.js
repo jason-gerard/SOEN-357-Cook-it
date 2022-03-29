@@ -32,30 +32,30 @@ export default function FoodItemList(props) {
     return (
         <Card sx={cardStyle} variant="outlined">
             <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-                {props.foodItems.map((value) => {
-                    const labelId = `checkbox-list-label-${value.id}`;
+                {props.foodItems.map((foodItem) => {
+                    const labelId = `checkbox-list-label-${foodItem.id}`;
 
                     return (
                         <ListItem
-                            key={value.id}
+                            key={foodItem.id}
                             secondaryAction={
-                                <IconButton edge="end" aria-label="comments">
+                                <IconButton edge="end" aria-label="delete">
                                     <Delete />
                                 </IconButton>
                             }
                             disablePadding
                         >
-                            <ListItemButton role={undefined} onClick={handleToggle(value.id)} dense>
+                            <ListItemButton role={undefined} onClick={handleToggle(foodItem.id)} dense>
                                 <ListItemIcon>
                                     <Checkbox
                                         edge="start"
-                                        checked={checked.indexOf(value.id) !== -1}
+                                        checked={checked.indexOf(foodItem.id) !== -1}
                                         tabIndex={-1}
                                         disableRipple
                                         inputProps={{ "aria-labelledby": labelId }}
                                     />
                                 </ListItemIcon>
-                                <ListItemText id={labelId} primary={`Line item ${value.name}`} />
+                                <ListItemText id={labelId} primary={foodItem.name} />
                             </ListItemButton>
                         </ListItem>
                     );

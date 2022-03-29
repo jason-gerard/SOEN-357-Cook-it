@@ -21,7 +21,7 @@ function App() {
         <Box sx={boxStyle} className="App">
             <FoodItemList foodItems={foodItems} checked={checked} setChecked={setChecked} />
             <AddFoodItemButton foodItems={foodItems} setFoodItems={setFoodItems} />
-            <GenerateRecipeButton foodItems={foodItems} setFoodItems={setFoodItems} />
+            <GenerateRecipeButton foodItems={foodItems} checked={checked} />
         </Box>
     );
 }
