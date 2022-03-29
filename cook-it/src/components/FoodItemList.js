@@ -13,8 +13,7 @@ const cardStyle = {
     minWidth: 400,
 }
 
-export default function FoodItemList() {
-    const [foodItems, setFoodItems] = React.useState([3, 5, 6, 7]);
+export default function FoodItemList(props) {
     const [checked, setChecked] = React.useState([0]);
 
     const handleToggle = (value) => () => {
@@ -33,7 +32,7 @@ export default function FoodItemList() {
     return (
         <Card sx={cardStyle} variant="outlined">
             <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                {foodItems.map((value) => {
+                {props.foodItems.map((value) => {
                     const labelId = `checkbox-list-label-${value}`;
 
                     return (

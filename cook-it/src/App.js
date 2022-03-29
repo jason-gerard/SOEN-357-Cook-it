@@ -3,8 +3,9 @@ import {Box, Button, Card, Fab} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import AddFoodItemButton from "./components/AddFoodItemButton";
 import FoodItemList from "./components/FoodItemList";
+import * as React from "react";
 
-const boxtyle = {
+const boxStyle = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -13,9 +14,11 @@ const boxtyle = {
 };
 
 function App() {
+    const [foodItems, setFoodItems] = React.useState([3, 5, 6, 7, 11]);
+
     return (
-        <Box sx={boxtyle} className="App">
-            <FoodItemList />
+        <Box sx={boxStyle} className="App">
+            <FoodItemList foodItems={foodItems} />
             <AddFoodItemButton />
         </Box>
     );
