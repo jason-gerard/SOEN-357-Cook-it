@@ -19,7 +19,7 @@ function App() {
 
     return (
         <Box sx={boxStyle} className="App">
-            <FoodItemList foodItems={foodItems} checked={checked} setChecked={setChecked} />
+            <FoodItemList foodItems={foodItems} setFoodItems={setFoodItems} />
             <AddFoodItemButton foodItems={foodItems} setFoodItems={setFoodItems} />
             <GenerateRecipeButton foodItems={foodItems} checked={checked} />
         </Box>

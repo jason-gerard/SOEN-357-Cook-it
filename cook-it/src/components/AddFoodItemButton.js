@@ -11,9 +11,11 @@ const fabStyle = {
 function FoodItemInputForm(props) {
     const { onClose, open, foodItems, setFoodItems } = props;
 
+    const [count, setCount] = React.useState(1);
     const [foodItem, setFoodItem] = React.useState({
-        id: foodItems.length,
+        id: 0,
         name: "",
+        isChecked: false,
     });
 
     const onTextChange = (e) =>
@@ -23,11 +25,16 @@ function FoodItemInputForm(props) {
         });
 
     const handleSubmit = () => {
+        setFoodItems(prevFoodItems => ([...prevFoodItems, {...foodItem}]));
+        console.log(foodItems);
+
         setFoodItem({
-            id: foodItems.length + 1,
+            id: count,
             name: "",
+            isChecked: false,
         });
-        setFoodItems([...foodItems, foodItem]);
+        setCount(prevCount => prevCount+1);
+
         onClose();
     };
 
