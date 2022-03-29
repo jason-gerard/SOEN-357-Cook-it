@@ -22,7 +22,7 @@ function FoodItemInputForm(props) {
         setFoodItem((prevFoodItem) => ({
             ...prevFoodItem,
             name: e.target.value,
-        }))
+        }));
     };
 
     const handleSubmit = () => {
