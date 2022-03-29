@@ -3,6 +3,7 @@ import AddFoodItemButton from "./components/AddFoodItemButton";
 import FoodItemList from "./components/FoodItemList";
 import * as React from "react";
 import { Box } from "@mui/material";
+import GenerateRecipeButton from "./components/GenerateRecipeButton";
 
 const boxStyle = {
     display: "flex",
@@ -20,6 +21,7 @@ function App() {
         <Box sx={boxStyle} className="App">
             <FoodItemList foodItems={foodItems} checked={checked} setChecked={setChecked} />
             <AddFoodItemButton foodItems={foodItems} setFoodItems={setFoodItems} />
+            <GenerateRecipeButton foodItems={foodItems} setFoodItems={setFoodItems} />
         </Box>
     );
 }
