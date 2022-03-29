@@ -9,7 +9,7 @@ const fabStyle = {
 };
 
 function FoodItemInputForm(props) {
-    const { onClose, open, foodItems, setFoodItems } = props;
+    const { onClose, open, setFoodItems } = props;
 
     const [count, setCount] = React.useState(1);
     const [foodItem, setFoodItem] = React.useState({
@@ -18,21 +18,22 @@ function FoodItemInputForm(props) {
         isChecked: false,
     });
 
-    const onTextChange = (e) =>
-        setFoodItem({
-            ...foodItem,
+    const onTextChange = (e) => {
+        setFoodItem((prevFoodItem) => ({
+            ...prevFoodItem,
             name: e.target.value,
-        });
+        }))
+    };
 
     const handleSubmit = () => {
-        setFoodItems(prevFoodItems => ([...prevFoodItems, {...foodItem}]));
+        setFoodItems((prevFoodItems) => [...prevFoodItems, { ...foodItem }]);
 
         setFoodItem({
             id: count,
             name: "",
             isChecked: false,
         });
-        setCount(prevCount => prevCount+1);
+        setCount((prevCount) => prevCount + 1);
 
         onClose();
     };
@@ -75,12 +76,7 @@ export default function AddFoodItemButton(props) {
                 <AddIcon />
             </Fab>
 
-            <FoodItemInputForm
-                open={open}
-                onClose={handleClose}
-                foodItems={props.foodItems}
-                setFoodItems={props.setFoodItems}
-            />
+            <FoodItemInputForm open={open} onClose={handleClose} setFoodItems={props.setFoodItems} />
         </React.Fragment>
     );
 }

@@ -77,11 +77,7 @@ export default function GenerateRecipeButton(props) {
                 Generate Recipe
             </Button>
 
-            <GeneratedRecipeModal
-                open={open}
-                onClose={handleClose}
-                foodItems={props.foodItems}
-            />
+            <GeneratedRecipeModal open={open} onClose={handleClose} foodItems={props.foodItems} />
         </React.Fragment>
     );
 }

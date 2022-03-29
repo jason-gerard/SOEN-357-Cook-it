@@ -6,8 +6,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
-import {Delete} from "@mui/icons-material";
-import {Card} from "@mui/material";
+import { Delete } from "@mui/icons-material";
+import { Card } from "@mui/material";
 
 const cardStyle = {
     minWidth: 400,
@@ -18,16 +18,17 @@ export default function FoodItemList(props) {
     const { foodItems, setFoodItems } = props;
 
     const handleToggleFoodItemCheck = (foodItemId) => {
-        setFoodItems(prevFoodItems => prevFoodItems.map((foodItem) => ({
-            ...foodItem,
-            isChecked: foodItem.id === foodItemId ? !foodItem.isChecked : foodItem.isChecked,
-        })));
+        setFoodItems((prevFoodItems) =>
+            prevFoodItems.map((foodItem) => ({
+                ...foodItem,
+                isChecked: foodItem.id === foodItemId ? !foodItem.isChecked : foodItem.isChecked,
+            })),
+        );
     };
 
     const handleFoodItemDelete = (foodItemId) => {
-        const newFoodItems = foodItems.filter((foodItem) => foodItem.id !== foodItemId);
-        setFoodItems(newFoodItems);
-    }
+        setFoodItems((prevFoodItems) => prevFoodItems.filter((foodItem) => foodItem.id !== foodItemId));
+    };
 
     return (
         <Card sx={cardStyle} variant="outlined">
@@ -39,13 +40,21 @@ export default function FoodItemList(props) {
                         <ListItem
                             key={foodItem.id}
                             secondaryAction={
-                                <IconButton edge="end" aria-label="delete" onClick={() => handleFoodItemDelete(foodItem.id)}>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="delete"
+                                    onClick={() => handleFoodItemDelete(foodItem.id)}
+                                >
                                     <Delete />
                                 </IconButton>
                             }
                             disablePadding
                         >
-                            <ListItemButton role={undefined} onClick={() => handleToggleFoodItemCheck(foodItem.id)} dense>
+                            <ListItemButton
+                                role={undefined}
+                                onClick={() => handleToggleFoodItemCheck(foodItem.id)}
+                                dense
+                            >
                                 <ListItemIcon>
                                     <Checkbox
                                         edge="start"
