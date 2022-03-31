@@ -9,7 +9,7 @@ const boxStyle = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    height: "100vh",
+    height: "80vh",
     position: "relative",
 };
 

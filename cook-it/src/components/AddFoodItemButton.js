@@ -1,22 +1,9 @@
 import * as React from "react";
-import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    Fab,
-    ListItem,
-    ListItemText,
-    TextField
-} from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import List from "@mui/material/List";
 
-const fabStyle = {
-    position: "absolute",
-    bottom: 16,
-    right: 16,
+const addFoodItemButtonStyle = {
+    marginTop: "30px",
 };
 
 function FoodItemInputForm(props) {
@@ -84,9 +71,15 @@ export default function AddFoodItemButton(props) {
 
     return (
         <React.Fragment>
-            <Fab sx={fabStyle} color="primary" aria-label="add" onClick={handleClickOpen}>
-                <AddIcon />
-            </Fab>
+            <Button
+                sx={addFoodItemButtonStyle}
+                variant="contained"
+                size="large"
+                endIcon={<AddIcon />}
+                onClick={handleClickOpen}
+            >
+                Add Food Item
+            </Button>
 
             <FoodItemInputForm open={open} onClose={handleClose} setFoodItems={props.setFoodItems} />
         </React.Fragment>

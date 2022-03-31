@@ -5,9 +5,7 @@ import { getAnalyzedRecipeInstructions, searchRecipesByIngredients } from "../se
 import List from "@mui/material/List";
 
 const generateRecipeButtonStyle = {
-    position: "absolute",
-    bottom: 16,
-    margin: "0 auto",
+    margin: "10px 0",
 };
 
 function singleClickRecipeGenerator(foodItems) {
@@ -16,10 +14,14 @@ function singleClickRecipeGenerator(foodItems) {
 
     const n = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    return [...new Set([...Array(n)].map((_) => {
-        const k = Math.floor(Math.random() * foodItems.length);
-        return foodItems[k];
-    }))];
+    return [
+        ...new Set(
+            [...Array(n)].map((_) => {
+                const k = Math.floor(Math.random() * foodItems.length);
+                return foodItems[k];
+            }),
+        ),
+    ];
 }
 
 function GeneratedRecipeModal(props) {
