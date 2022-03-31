@@ -10,6 +10,18 @@ const generateRecipeButtonStyle = {
     margin: "0 auto",
 };
 
+function singleClickRecipeGenerator(foodItems) {
+    const min = 2;
+    const max = foodItems.length;
+
+    const n = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    return [...new Set([...Array(n)].map((_) => {
+        const k = Math.floor(Math.random() * foodItems.length);
+        return foodItems[k];
+    }))];
+}
+
 function GeneratedRecipeModal(props) {
     const { onClose, open, foodItems } = props;
 
@@ -19,7 +31,11 @@ function GeneratedRecipeModal(props) {
     React.useEffect(() => {
         async function f() {
             if (open) {
-                const selectedFoodItems = foodItems.filter((foodItem) => foodItem.isChecked);
+                let selectedFoodItems = foodItems.filter((foodItem) => foodItem.isChecked);
+                if (selectedFoodItems.length === 0) {
+                    selectedFoodItems = singleClickRecipeGenerator(foodItems);
+                }
+
                 const recipe = await searchRecipesByIngredients(selectedFoodItems);
                 setRecipe(recipe);
                 const instructions = await getAnalyzedRecipeInstructions(recipe.id);
@@ -55,10 +71,14 @@ function GeneratedRecipeModal(props) {
 }
 
 export default function GenerateRecipeButton(props) {
+    const { foodItems } = props;
+
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
-        setOpen(true);
+        if (foodItems.length > 0) {
+            setOpen(true);
+        }
     };
 
     const handleClose = () => {
@@ -77,7 +97,7 @@ export default function GenerateRecipeButton(props) {
                 Generate Recipe
             </Button>
 
-            <GeneratedRecipeModal open={open} onClose={handleClose} foodItems={props.foodItems} />
+            <GeneratedRecipeModal open={open} onClose={handleClose} foodItems={foodItems} />
         </React.Fragment>
     );
 }

@@ -1,6 +1,17 @@
 import * as React from "react";
-import { Button, Dialog, DialogTitle, Fab, TextField } from "@mui/material";
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    Fab,
+    ListItem,
+    ListItemText,
+    TextField
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import List from "@mui/material/List";
 
 const fabStyle = {
     position: "absolute",
@@ -45,16 +56,20 @@ function FoodItemInputForm(props) {
     return (
         <Dialog onClose={handleClose} open={open}>
             <DialogTitle>Input food item</DialogTitle>
-            <TextField
-                id="outlined-basic"
-                label="Outlined"
-                variant="outlined"
-                onChange={onTextChange}
-                value={foodItem.name}
-            />
-            <Button variant="contained" onClick={handleSubmit}>
-                Add
-            </Button>
+            <DialogContent>
+                <TextField
+                    label="Food Item"
+                    variant="outlined"
+                    onChange={onTextChange}
+                    value={foodItem.name}
+                    sx={{ marginTop: 1 }}
+                />
+            </DialogContent>
+            <DialogActions>
+                <Button variant="contained" onClick={handleSubmit}>
+                    Add
+                </Button>
+            </DialogActions>
         </Dialog>
     );
 }
