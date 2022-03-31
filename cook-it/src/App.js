@@ -14,7 +14,11 @@ const boxStyle = {
 };
 
 function App() {
-    const [foodItems, setFoodItems] = React.useState([]);
+    const [foodItems, setFoodItems] = React.useState(JSON.parse(localStorage.getItem("foodItems")) || []);
+
+    React.useEffect(() => {
+        localStorage.setItem("foodItems", JSON.stringify(foodItems));
+    }, [foodItems]);
 
     return (
         <Box sx={boxStyle} className="App">

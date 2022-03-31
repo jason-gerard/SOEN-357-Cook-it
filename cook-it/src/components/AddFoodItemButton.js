@@ -22,9 +22,7 @@ const fabStyle = {
 function FoodItemInputForm(props) {
     const { onClose, open, setFoodItems } = props;
 
-    const [count, setCount] = React.useState(1);
     const [foodItem, setFoodItem] = React.useState({
-        id: 0,
         name: "",
         isChecked: false,
     });
@@ -37,14 +35,13 @@ function FoodItemInputForm(props) {
     };
 
     const handleSubmit = () => {
-        setFoodItems((prevFoodItems) => [...prevFoodItems, { ...foodItem }]);
+        const id = `${foodItem.name}${+new Date()}`;
+        setFoodItems((prevFoodItems) => [...prevFoodItems, { ...foodItem, id }]);
 
         setFoodItem({
-            id: count,
             name: "",
             isChecked: false,
         });
-        setCount((prevCount) => prevCount + 1);
 
         onClose();
     };
