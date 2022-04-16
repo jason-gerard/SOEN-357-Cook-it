@@ -14,8 +14,11 @@ const boxStyle = {
 };
 
 function App() {
+    // initialize the food items list from local storage or to an empty array
     const [foodItems, setFoodItems] = React.useState(JSON.parse(localStorage.getItem("foodItems")) || []);
 
+    // persists the food items into local storage so the user has the items
+    // the next time they open the app
     React.useEffect(() => {
         localStorage.setItem("foodItems", JSON.stringify(foodItems));
     }, [foodItems]);

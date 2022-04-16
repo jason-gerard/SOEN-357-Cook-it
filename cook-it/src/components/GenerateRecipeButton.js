@@ -8,6 +8,12 @@ const generateRecipeButtonStyle = {
     margin: "10px 0",
 };
 
+/**
+ * Take a random n between 2 and the max food items i.e. the number of food items
+ * then take n random food items from the list at the kth index
+ * @param foodItems
+ * @returns {*[]}
+ */
 function singleClickRecipeGenerator(foodItems) {
     const min = 2;
     const max = foodItems.length;
@@ -32,7 +38,9 @@ function GeneratedRecipeModal(props) {
 
     React.useEffect(() => {
         async function f() {
+            // only update the recipe when the modal is open
             if (open) {
+                // take the selected / checked food items else fallback to single click algo
                 let selectedFoodItems = foodItems.filter((foodItem) => foodItem.isChecked);
                 if (selectedFoodItems.length === 0) {
                     selectedFoodItems = singleClickRecipeGenerator(foodItems);

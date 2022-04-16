@@ -9,11 +9,13 @@ const addFoodItemButtonStyle = {
 function FoodItemInputForm(props) {
     const { onClose, open, setFoodItems } = props;
 
+    // initial food item state
     const [foodItem, setFoodItem] = React.useState({
         name: "",
         isChecked: false,
     });
 
+    // update the text of the food item every key press
     const onTextChange = (e) => {
         setFoodItem((prevFoodItem) => ({
             ...prevFoodItem,
@@ -21,6 +23,7 @@ function FoodItemInputForm(props) {
         }));
     };
 
+    // on submit add the food item to the list with a custom id
     const handleSubmit = () => {
         const id = `${foodItem.name}${+new Date()}`;
         setFoodItems((prevFoodItems) => [...prevFoodItems, { ...foodItem, id }]);

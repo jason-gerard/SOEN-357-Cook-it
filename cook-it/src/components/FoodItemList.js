@@ -17,6 +17,7 @@ const cardStyle = {
 export default function FoodItemList(props) {
     const { foodItems, setFoodItems } = props;
 
+    // update food item with new checked value and update app state
     const handleToggleFoodItemCheck = (foodItemId) => {
         setFoodItems((prevFoodItems) =>
             prevFoodItems.map((foodItem) => ({
@@ -26,6 +27,7 @@ export default function FoodItemList(props) {
         );
     };
 
+    // remove food item from app state list
     const handleFoodItemDelete = (foodItemId) => {
         setFoodItems((prevFoodItems) => prevFoodItems.filter((foodItem) => foodItem.id !== foodItemId));
     };
