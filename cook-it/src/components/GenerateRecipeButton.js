@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, ListItem, ListItemText } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, Box, Link } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { getAnalyzedRecipeInstructions, searchRecipesByIngredients } from "../services/Api";
-import List from "@mui/material/List";
+import { getRecipeCard, searchRecipesByIngredients } from "../services/Api";
 
 const generateRecipeButtonStyle = {
     margin: "10px 0",
@@ -34,7 +33,7 @@ function GeneratedRecipeModal(props) {
     const { onClose, open, foodItems } = props;
 
     const [recipe, setRecipe] = React.useState({});
-    const [instructions, setInstructions] = React.useState([]);
+    const [recipeCard, setRecipeCard] = React.useState([]);
 
     React.useEffect(() => {
         async function f() {
@@ -48,8 +47,8 @@ function GeneratedRecipeModal(props) {
 
                 const recipe = await searchRecipesByIngredients(selectedFoodItems);
                 setRecipe(recipe);
-                const instructions = await getAnalyzedRecipeInstructions(recipe.id);
-                setInstructions(instructions);
+                const recipeCard = await getRecipeCard(recipe.id);
+                setRecipeCard(recipeCard);
             }
         }
         f();
@@ -61,17 +60,19 @@ function GeneratedRecipeModal(props) {
 
     return (
         <Dialog onClose={handleClose} open={open}>
-            <DialogTitle>Recipe: {recipe.title}</DialogTitle>
             <DialogContent>
-                <List sx={{ p: 0 }}>
-                    {instructions.map(({ number, step }) => (
-                        <ListItem sx={{ p: 0 }} button key={number}>
-                            <ListItemText primary={`${number}: ${step}`} />
-                        </ListItem>
-                    ))}
-                </List>
+            <Box
+                component="img"
+                sx={{
+                    height: `100%`,
+                    width:`100%`,
+                }}
+                alt={`${recipe.title}`}
+                src={`${recipeCard}`}
+            />
             </DialogContent>
             <DialogActions>
+                <Link href={`${recipeCard}`} underline="none" marginRight={1}>Download</Link>
                 <Button variant="contained" onClick={handleClose}>
                     Close
                 </Button>
