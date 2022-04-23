@@ -2,7 +2,7 @@ import "./App.css";
 import AddFoodItemButton from "./components/AddFoodItemButton";
 import FoodItemList from "./components/FoodItemList";
 import * as React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import GenerateRecipeButton from "./components/GenerateRecipeButton";
 
 const boxStyle = {
@@ -25,6 +25,7 @@ function App() {
 
     return (
         <Box sx={boxStyle} className="App">
+            <Typography variant="h3" component="h2" color="primary">Cook.it</Typography>
             <FoodItemList foodItems={foodItems} setFoodItems={setFoodItems} />
             <AddFoodItemButton setFoodItems={setFoodItems} />
             <GenerateRecipeButton foodItems={foodItems} />
