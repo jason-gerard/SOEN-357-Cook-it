@@ -25,7 +25,9 @@ function App() {
 
     return (
         <Box sx={boxStyle} className="App">
-            <Typography variant="h3" component="h2" color="primary">Cook.it</Typography>
+            <Typography variant="h3" component="h2" color="primary">
+                Cook.it
+            </Typography>
             <FoodItemList foodItems={foodItems} setFoodItems={setFoodItems} />
             <AddFoodItemButton setFoodItems={setFoodItems} />
             <GenerateRecipeButton foodItems={foodItems} />

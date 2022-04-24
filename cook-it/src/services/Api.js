@@ -17,7 +17,7 @@ export async function searchRecipesByIngredients(ingredients) {
 
 /**
  * Returns an image url for the recipe card based on the recipe id
- * @param recipeId 
+ * @param recipeId
  * @returns {Promise<*>}
  */
 export async function getRecipeCard(recipeId) {
