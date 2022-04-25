@@ -74,12 +74,7 @@ export default function AddFoodItemButton(props) {
 
     return (
         <React.Fragment>
-            <Button
-                sx={addFoodItemButtonStyle}
-                variant="contained"
-                endIcon={<AddIcon />}
-                onClick={handleClickOpen}
-            >
+            <Button sx={addFoodItemButtonStyle} variant="contained" endIcon={<AddIcon />} onClick={handleClickOpen}>
                 Add Ingredient
             </Button>
 
