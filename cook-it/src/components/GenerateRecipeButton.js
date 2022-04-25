@@ -101,11 +101,10 @@ export default function GenerateRecipeButton(props) {
             <Button
                 sx={generateRecipeButtonStyle}
                 variant="contained"
-                size="large"
                 endIcon={<ArrowForwardIosIcon />}
                 onClick={handleClickOpen}
             >
-                Generate Recipe
+                Find a Recipe
             </Button>
 
             <GeneratedRecipeModal open={open} onClose={handleClose} foodItems={foodItems} />

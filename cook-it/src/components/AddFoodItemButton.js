@@ -42,10 +42,10 @@ function FoodItemInputForm(props) {
 
     return (
         <Dialog onClose={handleClose} open={open}>
-            <DialogTitle>Input food item</DialogTitle>
+            <DialogTitle>Add Ingredient</DialogTitle>
             <DialogContent>
                 <TextField
-                    label="Food Item"
+                    label="Ingredient Name"
                     variant="outlined"
                     onChange={onTextChange}
                     value={foodItem.name}
@@ -77,11 +77,10 @@ export default function AddFoodItemButton(props) {
             <Button
                 sx={addFoodItemButtonStyle}
                 variant="contained"
-                size="large"
                 endIcon={<AddIcon />}
                 onClick={handleClickOpen}
             >
-                Add Food Item
+                Add Ingredient
             </Button>
 
             <FoodItemInputForm open={open} onClose={handleClose} setFoodItems={props.setFoodItems} />
