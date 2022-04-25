@@ -13,6 +13,9 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: ["Monserrat", "sans-serif"].join(","),
+        button: {
+            textTransform: "none",
+        },
     },
 });
 
