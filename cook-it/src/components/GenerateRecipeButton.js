@@ -61,18 +61,20 @@ function GeneratedRecipeModal(props) {
     return (
         <Dialog onClose={handleClose} open={open}>
             <DialogContent>
-            <Box
-                component="img"
-                sx={{
-                    height: `100%`,
-                    width:`100%`,
-                }}
-                alt={`${recipe.title}`}
-                src={`${recipeCard}`}
-            />
+                <Box
+                    component="img"
+                    sx={{
+                        height: `100%`,
+                        width: `100%`,
+                    }}
+                    alt={`${recipe.title}`}
+                    src={`${recipeCard}`}
+                />
             </DialogContent>
             <DialogActions>
-                <Link href={`${recipeCard}`} underline="none" marginRight={1}>Download</Link>
+                <Link href={`${recipeCard}`} underline="none" marginRight={1}>
+                    Download
+                </Link>
                 <Button variant="contained" onClick={handleClose}>
                     Close
                 </Button>
